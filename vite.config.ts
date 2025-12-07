@@ -6,8 +6,9 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, (process as any).cwd(), '');
   return {
     plugins: [react()],
+    // ESTA LÍNEA ES CRUCIAL PARA GITHUB PAGES:
+    base: './', 
     define: {
-      // Polyfill simple para process.env para que funcione el código existente
       'process.env': env
     }
   };
